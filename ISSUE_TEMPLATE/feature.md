@@ -1,4 +1,4 @@
-## Proposed Feature
+# Proposed Feature
 
 (Add a summary of the feature)
 
