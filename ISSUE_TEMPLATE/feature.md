@@ -17,9 +17,10 @@
 - [ ] Build tests
 - [ ] Security checks
 
-_Required Labels_
+## Required Labels
 
-_Required Mentions_
+## Required Mentions
 
-_optional Mentions_
+## optional Mentions
+
 /cc
