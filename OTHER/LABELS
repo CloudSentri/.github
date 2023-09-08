@@ -1,0 +1,66 @@
+# Git Labels
+
+The following defines standard group labeling to identify, organize and track Issue and Merge-Requests. This group implements GitLab/GitHub Issues Board which requires a labeling process to be applied to track the work flow of an individual task/issue. The following outlines the label definitions and the work flow to apply specific labels.
+
+## Label Definitions
+
+Labels in this group are broken down by subject of type, topic, status, priority, and notification.
+
+### Type Labels
+
+Type labels define what kind of Issue/Merge-Request is being addressed. Typically Issues/Merge-Requests have one type, but in certain scenarios (e.g. Bug and Security) multiple Type labels can be allocated to an Issue/Merge-Request.
+
+> **Note:** All Type labels are given the color code blue `#0033CC`
+
+Type labels have corresponding Issue & Merge request templates.
+The following is a list of approved Type labels for git projects:
+
+| Title                  | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ~type::Feature       | Issues that describe new features. Issues that do not describe new features, such as code cleanup or fixes that are not related to a bug, should probably be given the Improvement label instead. On release, issues with the Feature label warrant at least a minor version increase. Features require a feature branch introduced into the project to support all work done for new feature. |
+| ~type::Improvement   | An issue with this label is not a Bug nor a Feature. Code cleanup or small changes to existing features would likely have this label. The distinction for this label is that these issues have a lower priority on our road map compared to issues labeled Bug, and aren’t implementing new features, such as a Feature issue might.                                                           |
+| ~type::Refactor      | An issue with this label is greater than an Improvement but not a minor Feature. Resource refactoring or changes template resources that require modification to align with documentation changes or functionality. The distinction for this label is the solution is working as is but new requirements may require minor modifications.                                                      |
+| ~type::CICD          | Content is related to implementations of Continuous Integration. This should be labeled with topics relevant to the platforms that are doing the CI testing.                                                                                                                                                                                                                                   |
+| ~type::Bug           | An issue describing unexpected or malicious behavior of the software. A Bug issue differs from an Improvement issue in that Bug issues are given priority on the sprint. On release, these issues generally only warrant incrementing the patch level version.                                                                                                                                 |
+| ~type::Security      | An issue that identifies a security feature/problem within the code. Security type labels can also be placed with Bug type labels.                                                                                                                                                                                                                                                             |
+| ~type::Documentation | Documentation type labels identify an issue or merge-request that only updates documentation for the project. Overall there is no functional changes to the code. Documentation labels can be either inline code commenting which will change the code content itself but not functionality, or change the associated documentation in the project (markdown files).                           |
+
+### Status Labels
+
+Status labels are applied to Issues/Merge-Requests to further identify the current status. Only one Status label will be applied to an issue at any given time.
+
+The following lists and defines approved Status labels:
+
+| Title                     | Color Code | Description                                                                                                                                                                           |
+| ------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ~status::Blocked        | `#AD8D43`  | The issue cannot be resolved until some other issue has been closed. See the issue’s log for which issue is blocking this issue.                                                      |
+| ~status::Planning       | `#44AD8E`  | The issue is undergoing initial review.                                                                                                                                               |
+| ~status::Backlogged     | `#34495E`  | The issue is approved work to be completed; however, the issue is not scheduled to be formally reviewed and merged in the near future.                                                |
+| ~status::In-progress    | `#69D100`  | This issue was approved by the core team, is being worked on, and has someone assigned.                                                                                               |
+| ~status::Cab-review     | `#A8D695`  | This label is applied to issues that need to go through approval before backlogged.                                                                                                   |
+| ~status::Awaiting-merge | `#5843AD`  | The issue has all work finished, has a merge request submitted, and is in review.                                                                                                     |
+| ~status::Stale          | `#7F8C8D`  | An issue is stale if it there has been no activity on it for 90 days. Once an issue is determined to be stale, it will be closed after 2 weeks unless there is activity on the issue. |
+| ~status::Rejected       | `#000`     | An issue which was reviewed by the core team of the project and rejected. Any issue with `status:rejected` should be closed with a comment of the details for rejection.              |
+
+### Priority Labels
+
+Priority labels define the urgency of work to be completed in the Issue/Merge-Request. All Priority labels are color coded from Yellow to Orange to Red to reflect the urgency with Red being the most urgent (e.g. critical). Only one Priority label will be applied to an issue at any given time.
+
+The following chart defines common use cases for the scope of priority labels in GitLab/GitHub. All merges requests should have a permission label once they are ready for deployment, and should not have a label applied until then to make the current priority status of all issues as clear as possible. The general flow is issues which fix broken functionality or are triggered by customer request take precedence over other issue types. Issues or fixes which must be implemented before an issue of higher definition can be implemented assume the scope of the higher issue. Example, CI/CD update which are required to be merged before pushing out critical permissions fix should inherit critical label.
+
+| Title                 | Color Code | Description                                                                                                                                                                                                               | Examples                                                                                         |
+| --------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| ~priority::Critical | `#FF0000`  | This is causing downtime of a production application. This issue should be merged ASAP, ahead of other requests.                                                                                                          | Missing required permissions for production application.                                         |
+| ~priority::High     | `#FFA500`  | This is causing problems with expected functionality and is often triggered by customer request. New services should also be labeled with high as they are requested by customers and should go out as soon as available. | New service, missing required permissions of released service, CI/CD updates which fix workflow. |
+| ~priority::Medium   | `#FFFF00`  | This may be fixing broken functionality, but is not triggered by customer request.                                                                                                                                        | New non-required permissions released.                                                           |
+| ~priority::Low      | `#F7E7CE`  | This does not fix a problem, but rather adds to existing functionality or makes changes which do not impact current customer permissions.                                                                                 | No impact changes, documentation, CI/CD updates which do not fix workflow.                       |
+
+### Miscellaneous Labels
+
+Miscellaneous labels are used to track and categorize various work based on schedules, groupings, or project management categorizations.
+
+| Title                 | Color Code | Description                                                                                                                                                                                                   |
+| --------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ~misc::External-Doc | `#00CCFF`  | This issue includes new documentation which needs corresponding pages created in Confluence.                                                                                                                  |
+| ~release::_n_       | `#4b3832`  | Release labels signify when the work was completed. These labels are added as the group continues release planning. The purpose of the release label is to track all work completed for a specific release.   |
+| ~misc::unplanned    | `#D21F3C`  | This label is added to any work that is/was completed during a Release but not part of the initial release planning. The label serves to track planned work vs unplanned work at end of sprints and releases. |
